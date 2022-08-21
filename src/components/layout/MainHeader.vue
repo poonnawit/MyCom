@@ -8,7 +8,7 @@ const isMobileToggleOpen = ref(false);
   <header class="bg-alternative fixed top-0 left-0 w-full shadow-alternative shadow-sm">
     <nav class="lg:max-w-screen-xl flex justify-between mx-auto items-center p-2.5">
       <router-link to="/" class="font-bold text-xl space-x-2 inline-flex tracking-wider"
-        ><img src="../assets/favicon-32x32.png" alt="hero-icon" /><span>MyCom</span></router-link
+        ><img src="../../assets/favicon-32x32.png" alt="hero-icon" /><span>MyCom</span></router-link
       >
       <!-- toggler btn -->
       <button class="transition lg:hidden p-2.5" @click="isMobileToggleOpen = true">
