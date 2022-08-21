@@ -53,10 +53,10 @@ const isMobileToggleOpen = ref(false);
           <button class="btn-link">Orders</button>
         </li>
         <li>
-          <button class="btn-alternative">Login</button>
+          <router-link class="btn-alternative" to="/login">Login</router-link>
         </li>
         <li>
-          <button class="btn-primary">Signup</button>
+          <router-link class="btn-primary" to="/signup">Signup</router-link>
         </li>
         <li>
           <button class="btn-primary">Logout</button>
@@ -81,7 +81,7 @@ const isMobileToggleOpen = ref(false);
         </button>
       </div>
       <ul class="text-alternative grid grid-cols-1 divide-y border-y">
-        <li class="transition px-6 py-3 cursor-pointer hover:bg-alternativebg">
+        <router-link class="transition px-6 py-3 hover:bg-alternativebg" to="/cart" @click="isMobileToggleOpen = false">
           <div class="flex items-center space-x-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -100,11 +100,11 @@ const isMobileToggleOpen = ref(false);
             <span class="bg-alternative text-xs text-black px-1 py-0.5 rounded-xl">0</span
             ><span>Cart</span>
           </div>
-        </li>
-        <li class="transition px-6 py-3 cursor-pointer hover:bg-alternativebg">Orders</li>
-        <li class="transition px-6 py-3 cursor-pointer hover:bg-alternativebg">Login</li>
-        <li class="transition px-6 py-3 cursor-pointer hover:bg-alternativebg">Signup</li>
-        <li class="transition px-6 py-3 cursor-pointer hover:bg-alternativebg">Logout</li>
+        </router-link>
+        <router-link class="transition px-6 py-3 hover:bg-alternativebg" to="/orders" @click="isMobileToggleOpen = false">Orders</router-link>
+        <router-link class="transition px-6 py-3 hover:bg-alternativebg" to="/login" @click="isMobileToggleOpen = false">Login</router-link>
+        <router-link class="transition px-6 py-3 hover:bg-alternativebg" to="/signup" @click="isMobileToggleOpen = false">Signup</router-link>
+        <li class="transition px-6 py-3 hover:bg-alternativebg">Logout</li>
       </ul>
     </nav>
   </transition>
@@ -113,7 +113,7 @@ const isMobileToggleOpen = ref(false);
 <style scoped>
 .mobile-enter-active,
 .mobile-leave-active {
-  transition: all 0.3s ease;
+  transition: all 0.3s;
   max-height: 100%;
 }
 

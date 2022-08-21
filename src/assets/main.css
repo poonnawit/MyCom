@@ -18,6 +18,6 @@
     @apply transition bg-transparent px-6 py-2 border border-primary text-black rounded-md hover:bg-alternativebg hover:border-alternativebg hover:text-white;
   }
   .btn-link {
-    @apply transition bg-transparent px-4 py-2 text-black rounded-md hover:bg-primarybg;
+    @apply transition bg-transparent px-4 py-2 text-black rounded-md border border-transparent hover:bg-primarybg;
   }
 }
