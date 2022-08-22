@@ -16,7 +16,7 @@ const categoryList = [
 </script>
 
 <template>
-  <section class="bg-alternativebg m-2 p-4 rounded-lg shadow-sm max-w-xs">
+  <section class="bg-alternativebg m-2 p-4 rounded-lg shadow-sm w-80 h-fit">
     <ul class="space-y-1 my-2">
       <li v-for="cat in categoryList" :key="cat">
         <button

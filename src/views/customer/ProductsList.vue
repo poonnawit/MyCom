@@ -6,9 +6,36 @@ import SidebarCategory from '../../components/layout/SidebarCategory.vue';
   <div class="flex">
     <SidebarCategory></SidebarCategory>
     <section>
-      <ul>
+      <ul class="grid grid-cols-4 gap-2 my-2 mx-auto">
         <li>
-          <ProductCard img="/img/A0141528OK_BIG_1.jpg"></ProductCard>
+          <ProductCard imgSource="/img/A0141528OK_BIG_1.jpg"></ProductCard>
+        </li>
+        <li>
+          <ProductCard imgSource="/img/A0144243OK_BIG_1.jpg"></ProductCard>
+        </li>
+        <li>
+          <ProductCard imgSource="/img/A0141528OK_BIG_1.jpg"></ProductCard>
+        </li>
+        <li>
+          <ProductCard imgSource="/img/A0144243OK_BIG_1.jpg"></ProductCard>
+        </li>
+        <li>
+          <ProductCard imgSource="/img/A0141528OK_BIG_1.jpg"></ProductCard>
+        </li>
+        <li>
+          <ProductCard imgSource="/img/A0144243OK_BIG_1.jpg"></ProductCard>
+        </li>
+        <li>
+          <ProductCard imgSource="/img/A0141528OK_BIG_1.jpg"></ProductCard>
+        </li>
+        <li>
+          <ProductCard imgSource="/img/A0144243OK_BIG_1.jpg"></ProductCard>
+        </li>
+        <li>
+          <ProductCard imgSource="/img/A0141528OK_BIG_1.jpg"></ProductCard>
+        </li>
+        <li>
+          <ProductCard imgSource="/img/A0144243OK_BIG_1.jpg"></ProductCard>
         </li>
       </ul>
     </section>

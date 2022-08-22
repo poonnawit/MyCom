@@ -8,19 +8,23 @@ const props = defineProps({
   title: {
     type: String,
     required: false,
-    default: "TITLE",
+    default: "Lorem ipsum dolor sit amet consectetur.",
   },
 });
 </script>
 
 <template>
-  <article class="bg-alternative rounded-md text-center overflow-hidden">
-    <img :src="props.imgSource" alt="product" class="w-full h-40 object-cover" />
+  <article class="bg-alternative rounded-md overflow-hidden">
+    <router-link to="#"
+      ><img :src="props.imgSource" alt="product" class="transition duration-500 w-full h-60 object-cover hover:scale-105"
+    /></router-link>
     <div class="p-4">
-      <h2 class="font-bold">{{ props.title }}</h2>
-      <div class="flex justify-center space-x-2 mt-4">
-        <button class="btn-alternative">View Details</button>
-        <button class="btn-primary">Add to cart</button>
+      <h2 class="transition font-bold hover:text-alternativebg">
+        <router-link to="#">{{ props.title }}</router-link>
+      </h2>
+      <div class="flex justify-between items-center space-x-2 mt-4">
+        <h3 class="font-bold text-xl">4,200.-</h3>
+        <button class="btn-primary text-sm">Add to cart</button>
       </div>
     </div>
   </article>
