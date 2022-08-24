@@ -3,13 +3,100 @@ import { ref } from "@vue/reactivity";
 import { watch } from "@vue/runtime-core";
 import SidebarCategory from "../../components/layout/SidebarCategory.vue";
 
+const products = [
+  {
+    title: "CPU INTEL CORE I7-12700 LGA 1700",
+    summary: "2.1 GHz / Cores 12 / Threads 20 / Intel UHD Graphics 770",
+    price: 13200,
+    imgSrc: "/img/A0141528OK_BIG_1.jpg",
+    linkToDetails: "#",
+  },
+  {
+    title: "VGA ASUS RADEON RX 6650XT DUAL O8G - 8GB GDDR6",
+    summary: "8GB / GDDR6 / 128-bit / 1xHDMI / 3xDisplayPort",
+    price: 15900,
+    imgSrc: "/img/A0144243OK_BIG_1.jpg",
+    linkToDetails: "#",
+  },
+  {
+    title: "CPU INTEL CORE I7-12700 LGA 1700",
+    summary: "2.1 GHz / Cores 12 / Threads 20 / Intel UHD Graphics 770",
+    price: 13200,
+    imgSrc: "/img/A0141528OK_BIG_1.jpg",
+    linkToDetails: "#",
+  },
+  {
+    title: "VGA ASUS RADEON RX 6650XT DUAL O8G - 8GB GDDR6",
+    summary: "8GB / GDDR6 / 128-bit / 1xHDMI / 3xDisplayPort",
+    price: 15900,
+    imgSrc: "/img/A0144243OK_BIG_1.jpg",
+    linkToDetails: "#",
+  },
+  {
+    title: "CPU INTEL CORE I7-12700 LGA 1700",
+    summary: "2.1 GHz / Cores 12 / Threads 20 / Intel UHD Graphics 770",
+    price: 13200,
+    imgSrc: "/img/A0141528OK_BIG_1.jpg",
+    linkToDetails: "#",
+  },
+  {
+    title: "VGA ASUS RADEON RX 6650XT DUAL O8G - 8GB GDDR6",
+    summary: "8GB / GDDR6 / 128-bit / 1xHDMI / 3xDisplayPort",
+    price: 15900,
+    imgSrc: "/img/A0144243OK_BIG_1.jpg",
+    linkToDetails: "#",
+  },
+  {
+    title: "CPU INTEL CORE I7-12700 LGA 1700",
+    summary: "2.1 GHz / Cores 12 / Threads 20 / Intel UHD Graphics 770",
+    price: 13200,
+    imgSrc: "/img/A0141528OK_BIG_1.jpg",
+    linkToDetails: "#",
+  },
+  {
+    title: "VGA ASUS RADEON RX 6650XT DUAL O8G - 8GB GDDR6",
+    summary: "8GB / GDDR6 / 128-bit / 1xHDMI / 3xDisplayPort",
+    price: 15900,
+    imgSrc: "/img/A0144243OK_BIG_1.jpg",
+    linkToDetails: "#",
+  },
+  {
+    title: "CPU INTEL CORE I7-12700 LGA 1700",
+    summary: "2.1 GHz / Cores 12 / Threads 20 / Intel UHD Graphics 770",
+    price: 13200,
+    imgSrc: "/img/A0141528OK_BIG_1.jpg",
+    linkToDetails: "#",
+  },
+  {
+    title: "VGA ASUS RADEON RX 6650XT DUAL O8G - 8GB GDDR6",
+    summary: "8GB / GDDR6 / 128-bit / 1xHDMI / 3xDisplayPort",
+    price: 15900,
+    imgSrc: "/img/A0144243OK_BIG_1.jpg",
+    linkToDetails: "#",
+  },
+  {
+    title: "CPU INTEL CORE I7-12700 LGA 1700",
+    summary: "2.1 GHz / Cores 12 / Threads 20 / Intel UHD Graphics 770",
+    price: 13200,
+    imgSrc: "/img/A0141528OK_BIG_1.jpg",
+    linkToDetails: "#",
+  },
+  {
+    title: "VGA ASUS RADEON RX 6650XT DUAL O8G - 8GB GDDR6",
+    summary: "8GB / GDDR6 / 128-bit / 1xHDMI / 3xDisplayPort",
+    price: 15900,
+    imgSrc: "/img/A0144243OK_BIG_1.jpg",
+    linkToDetails: "#",
+  },
+];
+
 const productsViewMode = ref("grid");
 </script>
 
 <template>
-  <div class="flex">
+  <div class="lg:flex">
     <SidebarCategory></SidebarCategory>
-    <section>
+    <section class="w-full mx-2">
       <h1 class="text-center font-bold text-2xl my-10">Products List</h1>
       <ul class="flex items-center w-fit mx-auto my-5 border border-primary rounded-md">
         <li class="flex">
@@ -70,38 +157,7 @@ const productsViewMode = ref("grid");
           </label>
         </li>
       </ul>
-      <ul class="grid grid-cols-4 gap-2 my-2 mx-auto">
-        <li>
-          <ProductCard imgSource="/img/A0141528OK_BIG_1.jpg"></ProductCard>
-        </li>
-        <li>
-          <ProductCard imgSource="/img/A0144243OK_BIG_1.jpg"></ProductCard>
-        </li>
-        <li>
-          <ProductCard imgSource="/img/A0141528OK_BIG_1.jpg"></ProductCard>
-        </li>
-        <li>
-          <ProductCard imgSource="/img/A0144243OK_BIG_1.jpg"></ProductCard>
-        </li>
-        <li>
-          <ProductCard imgSource="/img/A0141528OK_BIG_1.jpg"></ProductCard>
-        </li>
-        <li>
-          <ProductCard imgSource="/img/A0144243OK_BIG_1.jpg"></ProductCard>
-        </li>
-        <li>
-          <ProductCard imgSource="/img/A0141528OK_BIG_1.jpg"></ProductCard>
-        </li>
-        <li>
-          <ProductCard imgSource="/img/A0144243OK_BIG_1.jpg"></ProductCard>
-        </li>
-        <li>
-          <ProductCard imgSource="/img/A0141528OK_BIG_1.jpg"></ProductCard>
-        </li>
-        <li>
-          <ProductCard imgSource="/img/A0144243OK_BIG_1.jpg"></ProductCard>
-        </li>
-      </ul>
+      <ProductItems :products="products" :mode="productsViewMode"></ProductItems>
     </section>
   </div>
 </template>

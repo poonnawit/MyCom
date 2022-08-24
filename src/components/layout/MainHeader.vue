@@ -2,6 +2,8 @@
 import { ref } from "vue";
 
 const isMobileToggleOpen = ref(false);
+
+const itemsInCart = ref(0);
 </script>
 
 <template>
@@ -42,10 +44,13 @@ const isMobileToggleOpen = ref(false);
                   d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                 />
               </svg>
-              <span
-                class="bg-primary text-xs text-white px-1 py-0.5 rounded-xl relative top-2 -left-1.5"
-                >0</span
-              >
+              <transition name="cart-change" mode="out-in">
+                <span
+                  :key="itemsInCart"
+                  class="bg-primary text-xs text-white px-1 py-0.5 rounded-xl relative top-2 -left-1.5"
+                  >{{ itemsInCart }}</span
+                >
+              </transition>
             </div>
           </button>
         </li>
@@ -81,7 +86,11 @@ const isMobileToggleOpen = ref(false);
         </button>
       </div>
       <ul class="text-alternative grid grid-cols-1 divide-y border-y">
-        <router-link class="transition px-6 py-3 hover:bg-alternativebg" to="/cart" @click="isMobileToggleOpen = false">
+        <router-link
+          class="transition px-6 py-3 hover:bg-alternativebg"
+          to="/cart"
+          @click="isMobileToggleOpen = false"
+        >
           <div class="flex items-center space-x-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -101,9 +110,24 @@ const isMobileToggleOpen = ref(false);
             ><span>Cart</span>
           </div>
         </router-link>
-        <router-link class="transition px-6 py-3 hover:bg-alternativebg" to="/orders" @click="isMobileToggleOpen = false">Orders</router-link>
-        <router-link class="transition px-6 py-3 hover:bg-alternativebg" to="/login" @click="isMobileToggleOpen = false">Login</router-link>
-        <router-link class="transition px-6 py-3 hover:bg-alternativebg" to="/signup" @click="isMobileToggleOpen = false">Signup</router-link>
+        <router-link
+          class="transition px-6 py-3 hover:bg-alternativebg"
+          to="/orders"
+          @click="isMobileToggleOpen = false"
+          >Orders</router-link
+        >
+        <router-link
+          class="transition px-6 py-3 hover:bg-alternativebg"
+          to="/login"
+          @click="isMobileToggleOpen = false"
+          >Login</router-link
+        >
+        <router-link
+          class="transition px-6 py-3 hover:bg-alternativebg"
+          to="/signup"
+          @click="isMobileToggleOpen = false"
+          >Signup</router-link
+        >
         <li class="transition px-6 py-3 hover:bg-alternativebg">Logout</li>
       </ul>
     </nav>
@@ -121,5 +145,18 @@ const isMobileToggleOpen = ref(false);
 .mobile-leave-to {
   opacity: 0;
   max-height: 0;
+}
+
+.cart-change-enter-active {
+  transition: all 0.2s ease;
+}
+.cart-change-leave-active {
+  transition: all 0.2s ease;
+}
+
+.cart-change-enter,
+.cart-change-leave-to {
+  transform: scale(1.2);
+  background-color: #3f72af;
 }
 </style>

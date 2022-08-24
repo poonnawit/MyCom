@@ -7,7 +7,7 @@ import router from "./router";
 import "./assets/main.css";
 
 import FormCard from "./components/ui/FormCard.vue";
-import ProductCard from "./components/ui/ProductCard.vue";
+import ProductItems from "./components/ui/ProductItems.vue";
 
 const app = createApp(App);
 
@@ -15,6 +15,6 @@ app.use(createPinia());
 app.use(router);
 
 app.component("FormCard", FormCard);
-app.component("ProductCard", ProductCard);
+app.component("ProductItems", ProductItems);
 
 app.mount("#app");
