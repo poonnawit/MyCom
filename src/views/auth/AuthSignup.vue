@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <FormCard>
+  <FormCard class="mx-auto my-8 py-4 px-6 max-w-xl">
     <div class="text-center space-y-6 my-6">
       <h1 class="font-bold text-3xl">MyCom</h1>
       <h3 class="text-xl">Signup</h3>

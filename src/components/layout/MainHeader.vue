@@ -29,7 +29,7 @@ const itemsInCart = ref(0);
       <ul class="hidden lg:flex space-x-4 items-center">
         <li>
           <button class="btn-link pr-2">
-            <div class="flex items-center">
+            <router-link to="/cart" class="flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-6 w-6"
@@ -51,11 +51,13 @@ const itemsInCart = ref(0);
                   >{{ itemsInCart }}</span
                 >
               </transition>
-            </div>
+            </router-link>
           </button>
         </li>
         <li>
-          <button class="btn-link">Orders</button>
+          <button class="btn-link">
+            <router-link to="/orders">Order</router-link>
+          </button>
         </li>
         <li>
           <router-link class="btn-alternative" to="/login">Login</router-link>
