@@ -92,6 +92,8 @@ const products = [
   },
 ];
 
+const categoryTitle = ref("Laptop");
+
 const productsViewMode = ref("grid");
 </script>
 
@@ -100,7 +102,7 @@ const productsViewMode = ref("grid");
     <SidebarCategory></SidebarCategory>
     <section class="w-full mx-2">
       <div class="flex justify-between my-7">
-        <h1 class="text-center font-bold text-2xl">Products List</h1>
+        <h1 class="text-center font-bold text-2xl">{{ categoryTitle }}</h1>
         <ul class="flex items-center w-fit border border-primary rounded-md">
           <li class="flex">
             <input
@@ -114,6 +116,7 @@ const productsViewMode = ref("grid");
             />
             <label
               for="grid"
+              title="Grid view"
               class="transition px-2 py-1 rounded-l-md cursor-pointer hover:bg-alternative peer-checked:bg-alternativebg peer-checked:text-white"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -142,6 +145,7 @@ const productsViewMode = ref("grid");
             />
             <label
               for="list"
+              title="List view"
               class="transition px-2 py-1 rounded-r-md cursor-pointer hover:bg-alternative peer-checked:bg-alternativebg peer-checked:text-white"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"

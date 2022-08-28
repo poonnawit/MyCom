@@ -28,8 +28,8 @@ const itemsInCart = ref(0);
       <!-- toggler btn -->
       <ul class="hidden lg:flex space-x-4 items-center">
         <li>
-          <button class="btn-link pr-2">
-            <router-link to="/cart" class="flex items-center">
+          <router-link to="/cart">
+            <button class="btn-link flex items-center pr-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-6 w-6"
@@ -51,13 +51,13 @@ const itemsInCart = ref(0);
                   >{{ itemsInCart }}</span
                 >
               </transition>
-            </router-link>
-          </button>
+            </button>
+          </router-link>
         </li>
         <li>
-          <button class="btn-link">
-            <router-link to="/orders">Order</router-link>
-          </button>
+          <router-link to="/orders">
+            <button class="btn-link">Your Orders</button>
+          </router-link>
         </li>
         <li>
           <router-link class="btn-alternative" to="/login">Login</router-link>

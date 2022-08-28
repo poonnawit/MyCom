@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import { ref } from "@vue/reactivity";
+
+const productQuantity = ref(1);
+</script>
 
 <template>
   <section class="m-3 space-y-4">
@@ -14,12 +18,14 @@
         >
           <button
             class="transition py-1 font-bold w-8 bg-alternative rounded-l-md hover:bg-alternativebg hover:text-white"
+            @click="if (productQuantity > 1) productQuantity--;"
           >
             -
           </button>
-          <span class="py-1 w-12">1</span>
+          <span class="py-1 w-12">{{ productQuantity }}</span>
           <button
             class="transition py-1 font-bold w-8 bg-alternative rounded-r-md hover:bg-alternativebg hover:text-white"
+            @click="if (productQuantity < 10) productQuantity++;"
           >
             +
           </button>
