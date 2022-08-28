@@ -2,6 +2,12 @@
 import { ref } from "@vue/reactivity";
 import { computed } from "@vue/runtime-core";
 
+const thbPrice = new Intl.NumberFormat("en", {
+  style: "currency",
+  currency: "THB",
+  minimumFractionDigits: 2,
+});
+
 const cartList = ref([
   {
     prodId: "p1",
@@ -21,19 +27,19 @@ const cartList = ref([
 ]);
 
 const cartTotal = computed(() => {
-  return (
+  return thbPrice.format(
     cartList.value.reduce((total, product) => {
       return total + product.price * product.quantity;
     }, 0) / 100
-  ).toFixed(2);
+  );
 });
 </script>
 
 <template>
-  <div class="m-2 space-y-4">
-    <h1 class="text-center font-bold text-3xl my-4">Review your cart</h1>
-    <p class="text-center text-xl">Free delivery and free returns.</p>
-    <ul class="space-y-3 pb-8 border-b border-gray-300">
+  <div class="m-2">
+    <h1 class="text-center font-bold text-3xl mt-16">Review your cart</h1>
+    <p class="text-center text-xl my-8">Free delivery and free returns.</p>
+    <ul class="space-y-3 pb-8 mb-8 border-b border-gray-300">
       <li v-for="item in cartList" :key="item.prodId">
         <article
           class="md:flex md:justify-between md:items-center bg-white shadow-md shadow-gray-300 rounded-md"
@@ -49,7 +55,7 @@ const cartTotal = computed(() => {
           <div
             class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 p-4"
           >
-            <h3 class="text-lg">{{ "฿" + (item.price / 100).toFixed(2) }}</h3>
+            <h3 class="text-lg">{{ thbPrice.format(item.price / 100) }}</h3>
             <div
               class="flex justify-between text-center text-lg border w-fit border-alternativebg divide-x divide-gray-400 rounded-md"
             >
@@ -67,9 +73,11 @@ const cartTotal = computed(() => {
                 +
               </button>
             </div>
-            <h3 class="font-bold text-lg">
-              {{ "฿" + ((item.price * item.quantity) / 100).toFixed(2) }}
-            </h3>
+            <transition name="price-change" mode="out-in">
+              <div :key="item.quantity" class="font-bold text-lg">
+                {{ thbPrice.format((item.price * item.quantity) / 100) }}
+              </div>
+            </transition>
             <button class="btn-link" @click="null">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -90,10 +98,12 @@ const cartTotal = computed(() => {
         </article>
       </li>
     </ul>
-    <div class="md:ml-auto md:mr-4 md:w-[40rem] text-lg">
+    <div class="md:ml-auto md:mr-4 md:w-[40rem] mb-4 text-lg">
       <div class="flex justify-between">
         <div>Subtotal</div>
-        <div>{{ "฿" + cartTotal }}</div>
+        <transition name="price-change" mode="out-in">
+          <div :key="cartTotal" mode="out-in">{{ cartTotal }}</div>
+        </transition>
       </div>
       <div class="flex justify-between">
         <div>Shipping</div>
@@ -101,7 +111,9 @@ const cartTotal = computed(() => {
       </div>
       <div class="flex justify-between pt-4 mt-4 border-t border-gray-300 font-bold text-xl">
         <div>Total</div>
-        <div>{{ "฿" + cartTotal }}</div>
+        <transition name="price-change" mode="out-in">
+          <div :key="cartTotal">{{ cartTotal }}</div>
+        </transition>
       </div>
     </div>
     <div class="text-center md:text-right md:ml-auto md:mr-4 md:w-[40rem]">
@@ -118,3 +130,17 @@ const cartTotal = computed(() => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.price-change-enter-active {
+  transition: all 0.2s ease;
+}
+.price-change-leave-active {
+  transition: all 0.2s ease;
+}
+
+.price-change-enter,
+.price-change-leave-to {
+  background-color: #3f72af;
+}
+</style>
