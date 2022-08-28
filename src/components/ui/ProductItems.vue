@@ -62,18 +62,18 @@ const products = props.products;
       </article>
     </li>
   </ul>
-  <ul v-else class="border border-alternativebg divide-y divide-alternativebg">
+  <ul v-else class="space-y-3">
     <li v-for="product in products" :key="product.title">
-      <article class="bg-alternative">
-        <div class="flex divide-x divide-alternativebg">
+      <article class="bg-white shadow-md shadow-gray-300 rounded-md py-1 px-2">
+        <div class="flex items-center">
           <h2
-            class="transition font-bold leading-[2.5ex] h-[5.5ex] p-1 line-clamp-2 w-[40%] hover:text-alternativebg"
+            class="transition font-bold p-1 line-clamp-2 w-[40%] hover:text-alternativebg"
           >
             <router-link :to="product.linkToDetails" :title="product.title">{{
               product.title
             }}</router-link>
           </h2>
-          <h2 class="leading-[2.5ex] h-[5.5ex] line-clamp-2 p-1 w-[40%]">
+          <h2 class="line-clamp-2 p-1 w-[40%]">
             {{ product.summary }}
           </h2>
           <div class="text-right p-2 w-[10%]">

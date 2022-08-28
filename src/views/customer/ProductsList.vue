@@ -110,8 +110,7 @@ const productsViewMode = ref("grid");
               name="views-toggle"
               id="grid"
               class="hidden peer"
-              value="grid"
-              v-model="productsViewMode"
+              @click="productsViewMode = 'grid'"
               checked
             />
             <label
@@ -140,8 +139,7 @@ const productsViewMode = ref("grid");
               name="views-toggle"
               id="list"
               class="hidden peer"
-              value="list"
-              v-model="productsViewMode"
+              @click="productsViewMode = 'list'"
             />
             <label
               for="list"
